@@ -1,21 +1,15 @@
 {
   "name": "qsoft",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "repository": "https://github.com/alexyasinsky/qs.git",
+  "author": "alexyasinsky <alex_yasinsky@mail.ru>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html"
+
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexyasinsky/qs.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexyasinsky/qs/issues"
-  },
-  "homepage": "https://github.com/alexyasinsky/qs#readme"
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
 }
