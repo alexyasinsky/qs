@@ -15,19 +15,32 @@
 .header__wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 17px 21px;
+
   div {
     display: flex;
     align-items: center;
+    padding: 17px 20px;
   }
   .logo {
     img:first-child {
       margin-right: 10px;
     }
   }
-  .user_small {
-    i {
-      font-size: 18px;
+  .user {
+    &_small {
+      i {
+        font-size: 18px;
+      }
+    }
+    &_standart {
+      border-left: 1px solid #EBEBF1;
+      width: 170px;
+      justify-content: space-between;
+      padding-left: 20px;
+      p {
+        font-weight: 400;
+        font-size: 14px;
+      }
     }
   }
 }
@@ -40,12 +53,13 @@
   display: flex;
   background: #FFFFFF;
   border: 1px solid #EBEBF1;
-  margin: 0 -1px;
-  &__out {
+  margin: 0 -2px;
+  &_out {
     padding: 17px 21px;
   }
-  &__in {
+  &_in {
     border-radius: 5px;
+    width: 345px;
   }
   input {
     border: 0;
@@ -74,13 +88,14 @@ main {
   }
   .partner {
     margin: 20px 0;
-    width: 335px;
-    height: 140px;
     border: 1px solid #EBEBF1;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    &__box {
+      display: flex;
+    }
   }
 }
 
@@ -89,19 +104,52 @@ main {
     width: 375px;
   }
   .search {
-    &__in {
+    &_in {
       display: none !important;
     }
   }
+
+  .user_standart {
+    display: none !important;
+  }
+
+  .partner {
+    width: 335px;
+    height: 140px;
+    &__box {
+      flex-direction: column;
+    }
+  }
+
+  
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .header__wrapper, main {
     width: 768px;
   }
+  .header__wrapper {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+  }
   .search {
-    &__out {
+    &_out {
       display: none !important;
+    }
+  }
+  .user_small {
+    display: none !important;
+  }
+
+  .partner {
+    width: 230px;
+    height: 120px;
+    &__box {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    img {
+      transform: scale(0.8);
     }
   }
 }
@@ -111,8 +159,11 @@ main {
     min-width: 1280px;
   }
   .search {
-    &__out {
+    &_out {
       display: none !important;
     }
+  }
+  .user_small {
+    display: none !important;
   }
 }
