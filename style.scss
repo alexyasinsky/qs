@@ -12,27 +12,29 @@
   align-items: center;
 }
 
+.header__wrapper, main {
+  width: 100vw;
+}
+
 .header__wrapper {
   display: flex;
-  justify-content: space-between;
-
   div {
-    display: flex;
     align-items: center;
-    padding: 17px 20px;
   }
   .logo {
+    display: flex;
     img:first-child {
       margin-right: 10px;
     }
   }
   .user {
-    &_small {
+    &__small {
+      padding: 17px 0;
       i {
         font-size: 18px;
       }
     }
-    &_standart {
+    &__standard {
       border-left: 1px solid #EBEBF1;
       width: 170px;
       justify-content: space-between;
@@ -40,6 +42,7 @@
       p {
         font-weight: 400;
         font-size: 14px;
+        color: #768298;
       }
     }
   }
@@ -50,21 +53,22 @@
 }
 
 .search {
-  display: flex;
   background: #FFFFFF;
   border: 1px solid #EBEBF1;
-  margin: 0 -2px;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
   &_out {
-    padding: 17px 21px;
+    align-items: center;
   }
   &_in {
+    flex-grow: 1;
     border-radius: 5px;
-    width: 345px;
   }
   input {
     border: 0;
     margin-left: 10px;
-    width: -webkit-fill-available;
+    width: 100%;
   }
   i {
     color: #768298;
@@ -72,11 +76,10 @@
   i, input::placeholder {
     color: #BBC4D6;
   }
-
-  
 }
+
 main {
-  padding: 70px 20px;
+  padding: 70px 0;
   h1 {
     font-weight: 500;
     font-size: 28px;
@@ -86,38 +89,57 @@ main {
     text-align: left;
     margin-bottom: 10px;
   }
-  .partner {
-    margin: 20px 0;
-    border: 1px solid #EBEBF1;
-    border-radius: 5px;
+}
+
+.partner {
+  margin: 20px 0;
+  border: 1px solid #EBEBF1;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__box {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    &__box {
-      display: flex;
-    }
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
   .header__wrapper, main {
-    width: 375px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .header__wrapper {
+    justify-content: space-between;
   }
   .search {
     &_in {
-      display: none !important;
+      display: none;
+    }
+    &_out {
+      display: flex;
+      margin: 0 -2px;
     }
   }
 
-  .user_standart {
-    display: none !important;
+  .user {
+    &__small {
+      display: flex;
+    }
+    &__standard {
+      display: none;
+    }
   }
 
   .partner {
-    width: 335px;
+    width: 100vw;
     height: 140px;
+    margin-left: 5px;
+    margin-right: 5px;
     &__box {
-      flex-direction: column;
+      margin-left: -5px;
+      margin-right: -5px;
     }
   }
 
@@ -126,27 +148,40 @@ main {
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .header__wrapper, main {
-    width: 768px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .header__wrapper {
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   }
   .search {
+    &_in {
+      display: flex;
+      width: 345px;
+      margin: 17px 50px;
+    }
     &_out {
-      display: none !important;
+      display: none;
     }
   }
-  .user_small {
-    display: none !important;
+  .user {
+    &__small {
+      display: none;
+    }
+    &__standard {
+      display: flex;
+    }
   }
 
   .partner {
     width: 230px;
     height: 120px;
+    margin-left: 9px;
+    margin-right: 9px;
+
     &__box {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      margin-left: -9px;
+      margin-right: -9px;
     }
     img {
       transform: scale(0.8);
@@ -156,14 +191,39 @@ main {
 
 @media (min-width: 1280px) and (max-width: 1440px) {
   .header__wrapper, main {
-    min-width: 1280px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
   .search {
+    &_in {
+      display: flex;
+      margin: 17px 60px;
+    }
     &_out {
-      display: none !important;
+      display: none;
     }
   }
-  .user_small {
-    display: none !important;
+  .user {
+    &__small {
+      display: none;
+    }
+    &__standard {
+      display: flex;
+    }
+  }
+
+  .partner {
+    width: 287.5px;
+    height: 120px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    &__box {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+    img {
+      transform: scale(0.9);
+    }
   }
 }
