@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -25,31 +26,34 @@ header {
   div {
     align-items: center;
   }
-  .logo {
-    display: flex;
-    img:first-child {
-      margin-right: 9px;
+}
+
+.user {
+  cursor: pointer;
+  &_small {
+    padding: 34px 4px;
+    i {
+      font-size: 18px;
     }
   }
-  .user {
-    &__small {
-      padding: 34px 4px;
-      i {
-        font-size: 18px;
-      }
-    }
-    &__standard {
-      border-left: 1px solid #EBEBF1;
-      width: 149px;
-      justify-content: space-between;
-      p {
-        font-weight: 400;
-        font-size: 14px;
-        color: #768298;
-        letter-spacing: 0.01em;
-      }
+  &_standard {
+    border-left: 1px solid #EBEBF1;
+    width: 149px;
+    justify-content: space-between;
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      color: #768298;
+      letter-spacing: 0.01em;
     }
   }
+}
+
+.logo {
+  display: flex;
+  cursor: pointer;
+  width: 136px;
+  justify-content: space-between;
 }
 
 .fa_user_blue {
@@ -59,11 +63,13 @@ header {
 .search {
   background: #FFFFFF;
   border: 1px solid #EBEBF1;
-  height: 40px;
-  &_out {
+
+  &_outside-header {
     align-items: center;
+    height: 42px;
   }
-  &_in {
+  &_inside-header {
+    height: 40px;
     flex-grow: 1;
     border-radius: 5px;
     margin-top: 20px;
@@ -71,20 +77,22 @@ header {
   }
   input {
     border: 0;
-    margin-left: 8px;
+    margin-left: 10px;
     width: 100%;
   }
   i {
     font-size: 19px;
     color: #768298;
+    margin-top: 3px;
   }
   input::placeholder {
     color: #BBC4D6;
+    letter-spacing: 0.03em;
   }
 }
 
 main {
-  padding: 72px 0;
+  padding: 70px 0;
   h1 {
     font-weight: 500;
     line-height: 160%;
@@ -100,14 +108,20 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   &__box {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
+  &:hover {
+    box-shadow: -3px 0px 40px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(164, 164, 164, 0.03);
+  }
+
+
 }
 
-@media (min-width: 375px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .header__wrapper, main {
     padding-left: 20px;
     padding-right: 20px;
@@ -119,26 +133,24 @@ main {
   .search {
     padding-left: 20px;
     padding-right: 20px;
-    &_in {
+    &_inside-header {
       display: none;
     }
-    &_out {
+    &_outside-header {
       display: flex;
       margin: 0 -2px;
     }
     i {
       margin-left: 4px;
     }
-    input::placeholder {
-      letter-spacing: 0.01em;
-    }
+
   }
 
   .user {
-    &__small {
+    &_small {
       display: flex;
     }
-    &__standard {
+    &_standard {
       display: none;
     }
   }
@@ -152,6 +164,7 @@ main {
     width: 100vw;
     height: 140px;
     margin: 10px 5px;
+    min-width: 250px;
     &__box {
       margin-left: -5px;
       margin-right: -5px;
@@ -173,28 +186,26 @@ main {
   .search {
     padding-left: 7px;
     padding-right: 7px;
-    &_in {
+    &_inside-header {
       display: flex;
       width: 345px;
       margin-left: 50px;
       margin-right: 50px;
     }
-    &_out {
+    &_outside-header {
       display: none;
     }
-    input::placeholder {
-      letter-spacing: 0.03em;
-    }
+
     i {
       margin-left: 4px;
     }
 
   }
   .user {
-    &__small {
+    &_small {
       display: none;
     }
-    &__standard {
+    &_standard {
       display: flex;
       padding-left: 19px;
     }
@@ -221,7 +232,7 @@ main {
   }
 }
 
-@media (min-width: 1280px) and (max-width: 1440px) {
+@media (min-width: 1280px) {
   .header__wrapper, main {
     padding-left: 100px;
     padding-right: 100px;
@@ -231,27 +242,25 @@ main {
     height: 80px;
   }
   .search {
-    &_in {
+    &_inside-header {
       display: flex;
       margin-left: 60px;
       margin-right: 60px;
     }
-    &_out {
+    &_outside-header {
       display: none;
     }
-    input::placeholder {
-      letter-spacing: 0.03em;
-    }
+
     i {
       margin-left: 12px;
     }
 
   }
   .user {
-    &__small {
+    &_small {
       display: none;
     }
-    &__standard {
+    &_standard {
       display: flex;
       padding-left: 20px;
     }
